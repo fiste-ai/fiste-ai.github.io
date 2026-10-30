@@ -93,10 +93,40 @@
     .hero-text { font-size: 22px; max-width: 30ch; margin: 28px 0 0; }
     .hero-art img { width: 100%; max-width: 380px; height: auto; display: block; margin-left: auto; }
 
-    .note { background: var(--paper-2); border-radius: 4px; padding: 22px 26px; font: 500 16px/1.55 var(--sans);
-            color: var(--ink-2); display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; }
-    .note strong { color: var(--ink); }
-    .note a { font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .status-card { display: grid; grid-template-columns: minmax(0,0.8fr) minmax(0,1.5fr); background: #fff; border: 1px solid var(--rule);
+                   border-radius: 16px; box-shadow: 0 1px 2px rgba(32,37,43,.04), 0 12px 32px -18px rgba(32,37,43,.18); overflow: hidden; }
+    .status-text { padding: 30px 32px; font: 500 16px/1.6 var(--sans); color: var(--ink-2); }
+    .status-text p { margin: 0 0 18px; }
+    .status-label { display: flex; align-items: center; gap: 10px; font: 700 13px/1 var(--sans) !important;
+                    letter-spacing: .08em; text-transform: uppercase; color: var(--ink) !important; }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(223,21,46,.15);
+           animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(223,21,46,0); } }
+    .follow { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; color: var(--ink); text-decoration: none;
+              border: 1px solid var(--rule); border-radius: 999px; padding: 9px 16px; transition: border-color .15s, background .15s; }
+    .follow:hover { border-color: var(--ink); color: var(--ink); background: var(--paper); }
+    .sample { margin: 0; padding: 30px 32px; background: var(--paper-2); border-left: 1px solid var(--rule); }
+    .sample-label { font: 700 13px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
+    .tracks { list-style: none; margin: 0 0 18px; padding: 0; }
+    .track { position: relative; display: grid; grid-template-columns: 40px minmax(0,1fr) auto; gap: 14px; align-items: center;
+             padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .track:first-child { padding-top: 0; }
+    .play { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--red); background: transparent; color: var(--red);
+            display: grid; place-items: center; cursor: pointer; padding: 0; transition: background .15s, color .15s, transform .15s; }
+    .play:hover, .play[aria-pressed="true"] { background: var(--red); color: #fff; }
+    .play:hover { transform: scale(1.05); }
+    .play:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    .play svg { width: 18px; height: 18px; fill: currentColor; }
+    .play .i-pause, .play[aria-pressed="true"] .i-play { display: none; }
+    .play[aria-pressed="true"] .i-pause { display: block; }
+    .track-text p { margin: 0; }
+    .track .ne { font: 500 17px/1.45 var(--deva-sans); color: var(--ink); }
+    .track .en { font: 400 13.5px/1.45 var(--sans); color: var(--ink-3); margin-top: 2px; }
+    .time { font: 600 13px/1 var(--sans); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .bar { position: absolute; left: 54px; right: 0; bottom: -1px; height: 2px; }
+    .bar span { display: block; height: 100%; width: 0; background: var(--red); }
+    .sample-note { margin: 0; font: 400 13.5px/1.55 var(--sans); color: var(--ink-3); }
+    .sample-note a { color: var(--ink-2); text-decoration-thickness: 1px; }
 
     section { padding: 72px 0 8px; }
     h2 { font: 700 15px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3);
@@ -128,6 +158,9 @@
       .hero { padding-top: 24px; gap: 24px; }
       .hero-art { order: -1; }
       .hero-art { display: none; }
+      .status-card { grid-template-columns: minmax(0,1fr); }
+      .sample { border-left: 0; border-top: 1px solid var(--rule); }
+      .status-text, .sample { padding: 24px 22px; }
       .lede { font-size: 22px; }
       header nav a:not(.keep) { display: none; }
     }
@@ -155,9 +188,43 @@
         <div class="hero-art"><img src="/assets/logo.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="380" height="324"></div>
       </div>
 
-      <div class="note">
-        <span><strong>Where things stand:</strong> we are still training and listening. The weights will go up on Hugging Face when they sound right, not before.</span>
-        <a href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Follow the model page &rarr;</a>
+      <div class="status-card">
+        <div class="status-text">
+          <p class="status-label"><span class="dot" aria-hidden="true"></span>In training</p>
+          <p>We are still training and listening. The weights go up on Hugging Face when they sound right, not before.</p>
+          <a class="follow" href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Follow the model page <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <figure class="sample">
+          <figcaption class="sample-label">Early samples</figcaption>
+          <ol class="tracks">
+            <li class="track" data-src="/assets/suseli-hello.mp3">
+              <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
+              <span class="time">0:05</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-question.mp3">
+              <button type="button" class="play" aria-label="Play: Did you know you hear a warbler’s whistle before you ever see the bird?" aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">के तपाईंलाई थाहा छ, फिस्टो चरा देखिनुभन्दा पहिले नै यसको सुसेली सुनिन्छ?</p><p class="en">Did you know you hear a warbler’s whistle before you ever see the bird?</p></div>
+              <span class="time">0:06</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-pokhara.mp3">
+              <button type="button" class="play" aria-label="Play: Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">बिहान सबेरै पोखराबाट हेर्दा, माछापुच्छ्रेको टुप्पो घामले सुनौलो बनाउँछ।</p><p class="en">Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold.</p></div>
+              <span class="time">0:06</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-city.mp3">
+              <button type="button" class="play" aria-label="Play: In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">काठमाडौंका साँघुरा गल्लीहरूमा पुराना मन्दिर र नयाँ कफी पसलहरू सँगसँगै उभिएका छन्।</p><p class="en">In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side.</p></div>
+              <span class="time">0:07</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+          </ol>
+          <p class="sample-note">Unedited outputs from an early pilot model, picked from a few takes. The voice is from the <a href="https://huggingface.co/datasets/ai4bharat/Rasa" rel="noopener">AI4Bharat Rasa</a> dataset (CC BY 4.0).</p>
+          <audio preload="none"></audio>
+        </figure>
       </div>
 
       <section id="about" aria-labelledby="about-title">
@@ -214,5 +281,32 @@
       </div>
     </footer>
   </div>
+  <script>
+    (function () {
+      var audio = document.querySelector(".sample audio"); if (!audio) return;
+      var tracks = [].slice.call(document.querySelectorAll(".track")), cur = null;
+      function fmt(s) { s = Math.max(0, Math.ceil(s || 0)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); }
+      function set(t, on) { var b = t.querySelector(".play"); b.setAttribute("aria-pressed", on ? "true" : "false"); }
+      function draw() {
+        if (!cur) return;
+        var d = audio.duration || 0, f = d ? audio.currentTime / d : 0;
+        cur.querySelector(".bar span").style.width = (f * 100) + "%";
+        if (d) cur.querySelector(".time").textContent = fmt(d - audio.currentTime);
+        if (!audio.paused) requestAnimationFrame(draw);
+      }
+      function reset(t) { t.querySelector(".bar span").style.width = "0"; set(t, false); if (t.dataset.len) t.querySelector(".time").textContent = t.dataset.len; }
+      tracks.forEach(function (t) {
+        t.dataset.len = t.querySelector(".time").textContent;
+        t.querySelector(".play").addEventListener("click", function () {
+          if (cur === t) { audio.paused ? audio.play() : audio.pause(); return; }
+          if (cur) { audio.pause(); reset(cur); }
+          cur = t; audio.src = t.dataset.src; audio.play();
+        });
+      });
+      audio.addEventListener("play", function () { if (cur) { set(cur, true); draw(); } });
+      audio.addEventListener("pause", function () { if (cur) set(cur, false); });
+      audio.addEventListener("ended", function () { var t = cur; reset(t); cur = null; });
+    })();
+  </script>
 </body>
 </html>
