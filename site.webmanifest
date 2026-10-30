@@ -1,0 +1,12 @@
+{
+  "name": "Fiste AI: Suseli",
+  "short_name": "Suseli",
+  "description": "Natural Nepali text-to-speech by Fiste AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf8f1",
+  "theme_color": "#E01E37",
+  "icons": [
+    {"src": "/assets/mark.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}
