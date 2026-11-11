@@ -1,7 +1,7 @@
 {
-  "name": "Fiste AI: Suseli",
-  "short_name": "Suseli",
-  "description": "Nepali text-to-speech from Fiste AI.",
+  "name": "Fiste AI",
+  "short_name": "Fiste AI",
+  "description": "Speech technology for the Nepali language.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FEFDF9",
