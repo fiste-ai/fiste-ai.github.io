@@ -99,17 +99,10 @@
     .kicker b { color: var(--red); font-weight: 700; }
     h1 { margin: 0; font: 700 clamp(64px, 11vw, 128px)/1.3 var(--deva-sans); color: var(--red); letter-spacing: -0.01em; }
     h1 small { display: block; margin-top: 4px; font: 600 clamp(22px, 3vw, 28px)/1.25 var(--sans); color: var(--ink); letter-spacing: 0; }
-    .hero-text { font-size: 22px; max-width: 32ch; margin: 28px 0 0; }
     .hero-art img { width: 100%; max-width: 380px; height: auto; display: block; margin-left: auto; }
 
-    section { padding: 72px 0 8px; }
-    section.first { padding-top: 0; }
     h2 { font: 700 15px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3);
          margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 56px; }
-    .cols p { margin: 0 0 18px; }
-    .lede { font-size: 26px; line-height: 1.4; max-width: 34ch; margin: 0 0 32px; }
-
     .models { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .model { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--rule); border-radius: 16px;
              padding: 30px 32px 28px; text-decoration: none; color: var(--ink);
@@ -119,20 +112,11 @@
            text-transform: uppercase; color: var(--ink); }
     .tag em { font-style: normal; font-weight: 600; color: var(--ink-3); }
     .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(223,21,46,.15); }
-    .dot.open { background: transparent; box-shadow: inset 0 0 0 2px var(--red); animation: pulse 2.4s ease-in-out infinite; }
-    @keyframes pulse { 50% { box-shadow: inset 0 0 0 2px var(--red), 0 0 0 6px rgba(223,21,46,.12); } }
+    .dot.open { background: transparent; box-shadow: inset 0 0 0 2px var(--red); }
     .model .word { margin: 0; font: 700 68px/1.3 var(--deva-sans); color: var(--red); }
-    .model .latin { margin: 0 0 14px; font: 600 24px/1.2 var(--sans); }
-    .model .what { margin: 0 0 22px; font-size: 19px; line-height: 1.55; color: var(--ink-2); }
-    .model ul { list-style: none; padding: 0; margin: 0 0 26px; font: 500 15px/1.5 var(--sans); color: var(--ink-2); }
-    .model li { padding: 9px 0; border-top: 1px solid var(--rule); }
-    .model li b { color: var(--ink); font-weight: 700; }
+    .model .latin { margin: 0 0 12px; font: 600 24px/1.2 var(--sans); }
+    .model .what { margin: 0 0 26px; font-size: 19px; line-height: 1.55; color: var(--ink-2); }
     .model .more { margin-top: auto; font: 600 16px/1 var(--sans); color: var(--red); }
-
-    .name { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
-    .name .word { font: 700 44px/1.1 var(--deva-sans); color: var(--ink); margin: 0; }
-    .name .word span { display: block; font: italic 400 20px var(--serif); color: var(--ink-3); margin-top: 6px; }
-    .name p { margin: 0 0 18px; }
 
     footer { margin-top: 88px; border-top: 1px solid var(--rule); padding: 28px 0 44px; font: 500 15px/1.6 var(--sans); color: var(--ink-3); }
     footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -140,13 +124,11 @@
 
     @media (max-width: 820px) {
       body { font-size: 18px; }
-      .hero, .cols, .name, .models { grid-template-columns: 1fr; }
+      .hero, .models { grid-template-columns: 1fr; }
       .hero { padding-top: 24px; gap: 24px; }
       .hero-art { display: none; }
       .model { padding: 24px 22px; }
       .model .word { font-size: 56px; }
-      .lede { font-size: 22px; }
-      header nav a:not(.keep) { display: none; }
     }
   </style>
 </head>
@@ -155,11 +137,9 @@
     <header class="site">
       <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark.svg" alt="" width="61" height="34">Fiste AI</a>
       <nav aria-label="Main">
-        <a class="keep" href="#models">Models</a>
-        <a href="#about">About</a>
-        <a href="#name">The name</a>
-        <a class="keep" href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
-        <a class="keep" href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+        <a href="#models">Models</a>
+        <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
+        <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
       </nav>
     </header>
 
@@ -168,62 +148,27 @@
         <div>
           <p class="kicker"><b>Fiste AI</b> &nbsp;/&nbsp; Speech technology for Nepali</p>
           <h1 lang="ne">फिस्टे<small lang="en">Machines that listen to Nepali, and speak it.</small></h1>
-          <p class="hero-text">We build speech models for Nepali the way people here actually talk: on the phone, in a hurry, with English mixed in.</p>
         </div>
         <div class="hero-art"><img src="/assets/logo.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="380" height="324"></div>
       </div>
 
-      <section id="models" class="first" aria-labelledby="models-title">
+      <section id="models" aria-labelledby="models-title">
         <h2 id="models-title">Models</h2>
         <div class="models">
           <a class="model" href="/shravya/">
             <p class="tag"><span class="dot" aria-hidden="true"></span>Released <em>Speech recognition</em></p>
             <p class="word" lang="ne">श्रव्य</p>
             <p class="latin">Shravya</p>
-            <p class="what">Listens to Nepali and writes it down in Devanagari: conversations, phone calls, podcasts and Nepali with English mixed in.</p>
-            <ul>
-              <li><b>23.5%</b> word error rate over five test sets, the lowest of 16 systems measured</li>
-              <li><b>28&times;</b> faster than real time on a processor, no graphics card</li>
-              <li>Version 0.1, 11 November 2026</li>
-            </ul>
-            <span class="more">Results and how to get it &rarr;</span>
+            <p class="what">Listens to Nepali and writes it down. 23.5% word error rate, the lowest of 16 systems measured.</p>
+            <span class="more">See Shravya &rarr;</span>
           </a>
           <a class="model" href="/suseli/">
             <p class="tag"><span class="dot open" aria-hidden="true"></span>In training <em>Text-to-speech</em></p>
             <p class="word" lang="ne">सुसेली</p>
             <p class="latin">Suseli</p>
-            <p class="what">Reads Nepali text aloud the way a person from here would say it, down to the rise at the end of a question.</p>
-            <ul>
-              <li>Natural pronunciation, pauses and tone of voice</li>
-              <li>New voices only from speakers who have said yes</li>
-              <li>Not released yet</li>
-            </ul>
+            <p class="what">Reads Nepali text aloud the way a person from here would say it. Not released yet.</p>
             <span class="more">Hear early samples &rarr;</span>
           </a>
-        </div>
-      </section>
-
-      <section id="about" aria-labelledby="about-title">
-        <h2 id="about-title">What we do</h2>
-        <p class="lede">Computers still listen to Nepali badly, and speak it worse.</p>
-        <div class="cols">
-          <p>Most speech software is built for a few big languages and then stretched over the rest. Nepali gets the stretch: recognisers tested on someone reading a sentence aloud, and voices that sound like a word list.</p>
-          <p>We build for the Nepali people actually speak. That means bad phone lines, English dropped into the middle of a sentence, and spelling nobody quite agreed on.</p>
-          <p>We measure before we say anything. Every result we publish comes with the test sets, the scorer and the other systems we ran, including the ones that beat us.</p>
-          <p>And we keep our models small enough to run on your own machine, so your recordings and your text do not have to leave it.</p>
-        </div>
-      </section>
-
-      <section id="name" aria-labelledby="name-title">
-        <h2 id="name-title">The name</h2>
-        <div class="name">
-          <div>
-            <p class="word" lang="ne">फिस्टे<span lang="en">fiste</span></p>
-          </div>
-          <div>
-            <p><span lang="ne">फिस्टो</span>, or <span lang="ne">फिस्टे</span>, is what we call the small warblers you hear in the hills before you see them. The logo is one of those birds, looking out over the mountains.</p>
-            <p>The models are named for sound too. <span lang="ne">श्रव्य</span> (shravya) means audible, what can be heard. <span lang="ne">सुसेली</span> (suseli) is the tune you whistle to yourself, and one warbler is even named for it: the <span lang="ne">सुसेली फिस्टो</span>, the Whistler's warbler.</p>
-          </div>
         </div>
       </section>
     </main>
