@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Suseli: Nepali text-to-speech by Fiste AI</title>
-  <meta name="description" content="Suseli (सुसेली) is a Nepali text-to-speech model we are building at Fiste AI. It is not released yet. This page says what it will do and when you can try it.">
+  <title>Fiste AI: Suseli, Nepali text-to-speech, and Shravya, Nepali speech recognition</title>
+  <meta name="description" content="Fiste AI builds speech technology for the Nepali language. Shravya (श्रव्य), our Nepali speech recognition model, is released. Suseli (सुसेली), our Nepali text-to-speech model, is in training: this page says what it will do and when you can try it.">
   <link rel="canonical" href="https://fiste-ai.github.io/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Fiste AI">
@@ -45,7 +45,7 @@
         "name": "Fiste AI",
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
-        "description": "Fiste AI builds speech technology for the Nepali language.",
+        "description": "Fiste AI builds speech technology for the Nepali language: Shravya for speech recognition and Suseli for text-to-speech.",
         "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"]
       },
       {
@@ -84,6 +84,14 @@
     .brand img { height: 34px; width: auto; }
     header nav a { margin-left: 22px; text-decoration: none; color: var(--ink-2); font-weight: 500; }
     header nav a:hover { color: var(--ink); }
+    .news { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 6px 0 0; padding: 13px 18px; background: #fff;
+            border: 1px solid var(--rule); border-radius: 12px; text-decoration: none; font: 500 16px/1.45 var(--sans); color: var(--ink-2);
+            transition: border-color .15s; }
+    .news:hover { border-color: var(--red); color: var(--ink); }
+    .news b { font: 700 12px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--red);
+              padding: 5px 8px; border-radius: 999px; }
+    .news strong { color: var(--ink); font-weight: 600; }
+    .news span:last-child { color: var(--red); font-weight: 600; white-space: nowrap; }
 
     .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; padding: 56px 0 64px; }
     .kicker { font: 600 14px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 28px; }
@@ -172,12 +180,15 @@
     <header class="site">
       <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark.svg" alt="" width="61" height="34">Fiste AI</a>
       <nav aria-label="Main">
+        <a class="keep" href="/shravya/">Shravya</a>
         <a href="#about">About</a>
         <a href="#name">The name</a>
-        <a class="keep" href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Hugging Face</a>
+        <a class="keep" href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
         <a class="keep" href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
       </nav>
     </header>
+
+    <a class="news" href="/shravya/"><b>New</b><span><strong>Shravya (<span lang="ne">श्रव्य</span>)</strong>, our Nepali speech recognition model, is out.</span><span>See how it scores &rarr;</span></a>
 
     <main>
       <div class="hero">
@@ -277,7 +288,7 @@
     <footer>
       <div class="row">
         <span>Fiste AI, made in Nepal. &copy; 2026</span>
-        <span><a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a> &nbsp;&middot;&nbsp; <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></span>
+        <span><a href="/shravya/">Shravya</a> &nbsp;&middot;&nbsp; <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a> &nbsp;&middot;&nbsp; <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></span>
       </div>
     </footer>
   </div>
