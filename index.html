@@ -3,29 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fiste AI: speech technology for the Nepali language</title>
-  <meta name="description" content="Fiste AI builds speech models for the Nepali language. Shravya (श्रव्य) turns Nepali speech into text and is released. Suseli (सुसेली) reads Nepali text aloud and is in training.">
+  <title>Fiste AI: an AI lab for the Nepali language</title>
+  <meta name="description" content="Fiste AI is a lab that builds AI for the Nepali language. Shravya (श्रव्य) turns Nepali speech into text and is released. Suseli (सुसेली) reads Nepali text aloud and is in training.">
   <link rel="canonical" href="https://fiste-ai.github.io/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Fiste AI">
-  <meta name="keywords" content="Fiste AI, Nepali speech recognition, Nepali text-to-speech, Nepali ASR, Nepali TTS, Shravya, Suseli, श्रव्य, सुसेली">
-  <meta name="theme-color" content="#0B1736">
-  <meta name="color-scheme" content="light">
+  <meta name="keywords" content="Fiste AI, Nepali AI, Nepali language AI lab, Nepali speech recognition, Nepali text-to-speech, Nepali ASR, Nepali TTS, Shravya, Suseli, श्रव्य, सुसेली">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Light or dark: what the reader chose last time, or else what their system uses. Set before anything is drawn.
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fiste AI">
-  <meta property="og:title" content="Fiste AI: speech technology for Nepali">
-  <meta property="og:description" content="Models that listen to Nepali and speak it. Shravya, speech recognition, is released. Suseli, text-to-speech, is in training.">
+  <meta property="og:title" content="Fiste AI: an AI lab for the Nepali language">
+  <meta property="og:description" content="We build AI for the Nepali language. Shravya, speech recognition, is released. Suseli, text-to-speech, is in training.">
   <meta property="og:url" content="https://fiste-ai.github.io/">
   <meta property="og:image" content="https://fiste-ai.github.io/assets/og-fiste.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Fiste AI, speech technology for Nepali, with the fiste logo: a small bird's head over the Himalaya">
+  <meta property="og:image:alt" content="Fiste AI, an AI lab for the Nepali language, with the fiste logo: a small bird's head over the Himalaya">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ne_NP">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fiste AI: speech technology for Nepali">
-  <meta name="twitter:description" content="Models that listen to Nepali and speak it. Shravya is released. Suseli is in training.">
+  <meta name="twitter:title" content="Fiste AI: an AI lab for the Nepali language">
+  <meta name="twitter:description" content="We build AI for the Nepali language. Shravya is released. Suseli is in training.">
   <meta name="twitter:image" content="https://fiste-ai.github.io/assets/og-fiste.png">
 
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -47,7 +58,7 @@
         "name": "Fiste AI",
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
-        "description": "Fiste AI builds speech technology for the Nepali language: Shravya for speech recognition and Suseli for text-to-speech.",
+        "description": "Fiste AI is an AI lab for the Nepali language. Its first models are Shravya, for speech recognition, and Suseli, for text-to-speech.",
         "email": "fistelabs@gmail.com",
         "areaServed": "NP",
         "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"],
@@ -93,11 +104,12 @@
   <a class="skip" href="#main">Skip to the page</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
+      <a class="brand" href="/" aria-label="Fiste AI home"><img class="on-light" src="/assets/mark.svg" alt="" width="57" height="32"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
         <a href="#models">Models</a>
         <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
         <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+        <button class="theme" type="button" aria-label="Use the dark theme" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button>
         <a class="cta keep" href="/contact/">Request a demo</a>
       </nav>
     </div>
@@ -107,14 +119,15 @@
     <div class="hero">
       <div class="wrap">
         <div>
-          <p class="kicker"><b>Fiste AI</b> &nbsp;/&nbsp; Speech technology for Nepali</p>
-          <h1 lang="ne">फिस्टे<small lang="en">Machines that listen to Nepali, and speak it.</small></h1>
+          <p class="kicker"><b>Fiste AI</b> &nbsp;/&nbsp; Made in Nepal</p>
+          <h1 lang="ne">फिस्टे<small lang="en">An AI lab for the Nepali language.</small></h1>
+          <p class="lede">We build models for Nepali, measure them in the open, and release them free for research.</p>
           <div class="actions">
-            <a class="btn gold" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
-            <a class="btn ghost" href="#models">See the models</a>
+            <a class="btn" href="#models">See the models</a>
+            <a class="more" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
-        <div class="hero-art"><img src="/assets/logo-dark.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="400" height="341"></div>
+        <div class="hero-art"><img class="on-light" src="/assets/logo.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="400" height="341"><img class="on-dark" src="/assets/logo-dark.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="400" height="341"></div>
       </div>
       <div class="range" aria-hidden="true"></div>
     </div>
@@ -122,77 +135,74 @@
     <div class="wrap">
       <section class="section" id="models" aria-labelledby="models-title">
         <h2 class="label" id="models-title">Models</h2>
-        <div class="models">
-          <article class="model reveal">
-            <p class="tag"><span class="dot" aria-hidden="true"></span>Released <em>Speech recognition</em></p>
-            <h3 class="name"><span class="word" lang="ne">श्रव्य</span>Shravya</h3>
+        <article class="entry">
+          <p class="word" lang="ne">श्रव्य</p>
+          <div>
+            <h3>Shravya</h3>
+            <p class="kind">Speech recognition</p>
             <p class="what">Listens to Nepali and writes it down. 23.5% word error rate, the lowest of 16 systems measured.</p>
-            <div class="panel">
-              <div class="track">
-                <span class="ear" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <div class="track-text"><p class="ne" lang="ne">नमस्ते म सुसेली हुँ नेपाली बोल्न सिकिरहेको एउटा सानो आवाज</p><p class="en">What Shravya wrote down on hearing Suseli’s sample.</p></div>
-                <span class="time">0:05</span>
-              </div>
-            </div>
-            <p class="spec"><b>Listens to</b>Conversations, phone calls, Nepali mixed with English.</p>
-            <div class="actions">
-              <a class="btn blue" href="/shravya/">See Shravya <span aria-hidden="true">&rarr;</span></a>
-              <a class="quiet" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model</a>
-            </div>
-          </article>
-          <article class="model reveal">
-            <p class="tag"><span class="dot open" aria-hidden="true"></span>In training <em>Text-to-speech</em></p>
-            <h3 class="name"><span class="word" lang="ne">सुसेली</span>Suseli</h3>
+          </div>
+          <div class="meta">
+            <p class="status"><span class="dot" aria-hidden="true"></span>Released, version 0.1</p>
+            <a class="more" href="/shravya/">See Shravya <span aria-hidden="true">&rarr;</span></a>
+            <a class="more" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model</a>
+          </div>
+        </article>
+        <article class="entry">
+          <p class="word" lang="ne">सुसेली</p>
+          <div>
+            <h3>Suseli</h3>
+            <p class="kind">Text-to-speech</p>
             <p class="what">Reads Nepali text aloud the way a person from here would say it. Not released yet.</p>
-            <figure class="panel sample">
-              <div class="track" data-src="/assets/suseli-hello.mp3">
-                <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
-                <span class="time">0:05</span>
-                <span class="bar" aria-hidden="true"><span></span></span>
-              </div>
-              <audio preload="none"></audio>
-            </figure>
-            <p class="spec"><b>Working on</b>Sounding like speech, tone of voice, more than one voice, running on your own machine.</p>
-            <div class="actions">
-              <a class="btn blue" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
-              <a class="quiet" href="/contact/">Ask for early access</a>
-            </div>
-          </article>
-        </div>
+          </div>
+          <div class="meta">
+            <p class="status"><span class="dot open" aria-hidden="true"></span>In training</p>
+            <a class="more" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
+            <a class="more" href="/contact/">Ask for early access</a>
+          </div>
+        </article>
       </section>
 
-      <div class="band reveal">
-        <p><b>Using Nepali speech at work?</b>Ask for a demo on your own recordings, a commercial licence, or early access to Suseli.</p>
-        <a class="btn gold" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
-        <div class="range" aria-hidden="true"></div>
-      </div>
+      <section class="section" aria-labelledby="hear-title">
+        <h2 class="label" id="hear-title">One speaks, the other writes it down</h2>
+        <figure class="duet sample">
+          <div class="track" data-src="/assets/suseli-hello.mp3">
+            <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+            <div class="track-text">
+              <p class="who">Suseli says</p>
+              <p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p>
+              <p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p>
+            </div>
+            <span class="time">0:05</span>
+            <span class="bar" aria-hidden="true"><span></span></span>
+          </div>
+          <div class="heard">
+            <p class="who">Shravya writes</p>
+            <p class="ne" lang="ne">नमस्ते म सुसेली हुँ नेपाली बोल्न सिकिरहेको एउटा सानो आवाज</p>
+            <p class="en">Every word as it was said. Shravya does not write punctuation yet.</p>
+          </div>
+          <audio preload="none"></audio>
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="work-title">
+        <h2 class="label" id="work-title">Work with us</h2>
+        <p class="big">Building something in Nepali? Ask for a demo on your own recordings, a commercial licence, or early access to Suseli.</p>
+        <a class="btn" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
+      </section>
     </div>
   </main>
 
   <footer class="foot">
-    <div class="range" aria-hidden="true"></div>
     <div class="wrap">
-      <div>
-        <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
-        <p>Speech technology for the Nepali language.</p>
-      </div>
-      <div>
-        <h2>Models</h2>
-        <ul>
-          <li><a href="/shravya/">Shravya</a></li>
-          <li><a href="/suseli/">Suseli</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Find us</h2>
-        <ul>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a></li>
-          <li><a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
-      <p class="legal">Fiste AI, made in Nepal. &copy; 2026</p>
+      <p>Fiste AI, made in Nepal. &copy; 2026</p>
+      <nav aria-label="Footer">
+        <a href="/shravya/">Shravya</a>
+        <a href="/suseli/">Suseli</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
+        <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+      </nav>
     </div>
   </footer>
 </body>

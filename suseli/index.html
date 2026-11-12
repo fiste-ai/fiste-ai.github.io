@@ -8,8 +8,19 @@
   <link rel="canonical" href="https://fiste-ai.github.io/suseli/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Fiste AI">
-  <meta name="theme-color" content="#0B1736">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Light or dark: what the reader chose last time, or else what their system uses. Set before anything is drawn.
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fiste AI">
@@ -46,7 +57,7 @@
         "name": "Fiste AI",
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
-        "description": "Fiste AI builds speech technology for the Nepali language: Shravya for speech recognition and Suseli for text-to-speech.",
+        "description": "Fiste AI is an AI lab for the Nepali language. Its first models are Shravya, for speech recognition, and Suseli, for text-to-speech.",
         "email": "fistelabs@gmail.com",
         "areaServed": "NP",
         "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"],
@@ -85,12 +96,13 @@
   <a class="skip" href="#main">Skip to the page</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
+      <a class="brand" href="/" aria-label="Fiste AI home"><img class="on-light" src="/assets/mark.svg" alt="" width="57" height="32"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
         <a href="/#models">Models</a>
         <a href="/shravya/">Shravya</a>
         <a href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Hugging Face</a>
         <a href="https://github.com/fiste-ai/suseli" rel="noopener">GitHub</a>
+        <button class="theme" type="button" aria-label="Use the dark theme" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button>
         <a class="cta keep" href="/contact/">Request a demo</a>
       </nav>
     </div>
@@ -104,38 +116,38 @@
           <h1 lang="ne">सुसेली<small lang="en">Suseli, a voice for Nepali.</small></h1>
           <p class="lede">You type Nepali, it reads it back the way a person from here would say it.</p>
           <div class="actions">
-            <a class="btn gold" href="/contact/">Ask for early access <span aria-hidden="true">&rarr;</span></a>
-            <a class="btn ghost" href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Follow the model page</a>
+            <a class="btn" href="/contact/">Ask for early access <span aria-hidden="true">&rarr;</span></a>
+            <a class="more" href="https://huggingface.co/fiste-ai/suseli" rel="noopener">Follow the model page</a>
           </div>
         </div>
-        <figure class="glass sample">
-          <figcaption class="state"><span class="dot beat" aria-hidden="true"></span>In training <em>Early samples</em></figcaption>
+        <figure class="plate sample">
+          <figcaption class="state"><span class="dot open beat" aria-hidden="true"></span>In training <em>Early samples</em></figcaption>
           <ol class="tracks">
-              <li class="track" data-src="/assets/suseli-hello.mp3">
-                <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
-                <span class="time">0:05</span>
-                <span class="bar" aria-hidden="true"><span></span></span>
-              </li>
-              <li class="track" data-src="/assets/suseli-question.mp3">
-                <button type="button" class="play" aria-label="Play: Did you know you hear a warbler’s whistle before you ever see the bird?" aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                <div class="track-text"><p class="ne" lang="ne">के तपाईंलाई थाहा छ, फिस्टो चरा देखिनुभन्दा पहिले नै यसको सुसेली सुनिन्छ?</p><p class="en">Did you know you hear a warbler’s whistle before you ever see the bird?</p></div>
-                <span class="time">0:06</span>
-                <span class="bar" aria-hidden="true"><span></span></span>
-              </li>
-              <li class="track" data-src="/assets/suseli-pokhara.mp3">
-                <button type="button" class="play" aria-label="Play: Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                <div class="track-text"><p class="ne" lang="ne">बिहान सबेरै पोखराबाट हेर्दा, माछापुच्छ्रेको टुप्पो घामले सुनौलो बनाउँछ।</p><p class="en">Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold.</p></div>
-                <span class="time">0:06</span>
-                <span class="bar" aria-hidden="true"><span></span></span>
-              </li>
-              <li class="track" data-src="/assets/suseli-city.mp3">
-                <button type="button" class="play" aria-label="Play: In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                <div class="track-text"><p class="ne" lang="ne">काठमाडौंका साँघुरा गल्लीहरूमा पुराना मन्दिर र नयाँ कफी पसलहरू सँगसँगै उभिएका छन्।</p><p class="en">In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side.</p></div>
-                <span class="time">0:07</span>
-                <span class="bar" aria-hidden="true"><span></span></span>
-              </li>
-            </ol>
+            <li class="track" data-src="/assets/suseli-hello.mp3">
+              <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
+              <span class="time">0:05</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-question.mp3">
+              <button type="button" class="play" aria-label="Play: Did you know you hear a warbler’s whistle before you ever see the bird?" aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">के तपाईंलाई थाहा छ, फिस्टो चरा देखिनुभन्दा पहिले नै यसको सुसेली सुनिन्छ?</p><p class="en">Did you know you hear a warbler’s whistle before you ever see the bird?</p></div>
+              <span class="time">0:06</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-pokhara.mp3">
+              <button type="button" class="play" aria-label="Play: Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">बिहान सबेरै पोखराबाट हेर्दा, माछापुच्छ्रेको टुप्पो घामले सुनौलो बनाउँछ।</p><p class="en">Seen from Pokhara at dawn, the sun turns the tip of Machhapuchhre gold.</p></div>
+              <span class="time">0:06</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+            <li class="track" data-src="/assets/suseli-city.mp3">
+              <button type="button" class="play" aria-label="Play: In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+              <div class="track-text"><p class="ne" lang="ne">काठमाडौंका साँघुरा गल्लीहरूमा पुराना मन्दिर र नयाँ कफी पसलहरू सँगसँगै उभिएका छन्।</p><p class="en">In Kathmandu’s narrow lanes, old temples and new coffee shops stand side by side.</p></div>
+              <span class="time">0:07</span>
+              <span class="bar" aria-hidden="true"><span></span></span>
+            </li>
+          </ol>
           <p class="fine">We are still training and listening. The weights go up on Hugging Face when they sound right, not before.</p>
           <audio preload="none"></audio>
         </figure>
@@ -147,48 +159,35 @@
       <section class="section" aria-labelledby="plans-title">
         <h2 class="label" id="plans-title">What we are working on</h2>
         <ol class="grid">
-          <li class="tile reveal"><h3>Sounding like speech <span lang="ne">स्वाभाविक बोली</span></h3>
+          <li class="tile"><h3>Sounding like speech <span lang="ne">स्वाभाविक बोली</span></h3>
             <p>Clear pronunciation, natural pauses, and the rise at the end of a question.</p></li>
-          <li class="tile reveal"><h3>Tone of voice <span lang="ne">भाव</span></h3>
+          <li class="tile"><h3>Tone of voice <span lang="ne">भाव</span></h3>
             <p>Calm, cheerful or serious, when you ask for it.</p></li>
-          <li class="tile reveal"><h3>More than one voice <span lang="ne">धेरै आवाज</span></h3>
+          <li class="tile"><h3>More than one voice <span lang="ne">धेरै आवाज</span></h3>
             <p>Built-in voices, and new ones only from people who have said yes.</p></li>
-          <li class="tile reveal"><h3>Running on your own machine <span lang="ne">सानो र छिटो</span></h3>
+          <li class="tile"><h3>Running on your own machine <span lang="ne">सानो र छिटो</span></h3>
             <p>A small version for a laptop or a phone.</p></li>
         </ol>
       </section>
 
-      <div class="band reveal">
-        <p><b>Want a Nepali voice for your product?</b>Tell us what you need it for and we will come to you first.</p>
-        <a class="btn gold" href="/contact/">Ask for early access <span aria-hidden="true">&rarr;</span></a>
-        <div class="range" aria-hidden="true"></div>
-      </div>
+      <section class="section" aria-labelledby="access-title">
+        <h2 class="label" id="access-title">Early access</h2>
+        <p class="big">Want a Nepali voice for your product? Tell us what you need it for and we will come to you first.</p>
+        <a class="btn" href="/contact/">Ask for early access <span aria-hidden="true">&rarr;</span></a>
+      </section>
     </div>
   </main>
 
   <footer class="foot">
-    <div class="range" aria-hidden="true"></div>
     <div class="wrap">
-      <div>
-        <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
-        <p>Speech technology for the Nepali language.</p>
-      </div>
-      <div>
-        <h2>Models</h2>
-        <ul>
-          <li><a href="/shravya/">Shravya</a></li>
-          <li><a href="/suseli/">Suseli</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Find us</h2>
-        <ul>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a></li>
-          <li><a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
-      <p class="legal">Fiste AI, made in Nepal. &copy; 2026</p>
+      <p>Fiste AI, made in Nepal. &copy; 2026</p>
+      <nav aria-label="Footer">
+        <a href="/shravya/">Shravya</a>
+        <a href="/suseli/">Suseli</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
+        <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+      </nav>
     </div>
   </footer>
 </body>

@@ -9,8 +9,19 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Fiste AI">
   <meta name="keywords" content="Fiste AI contact, Nepali speech recognition demo, Nepali ASR licence, Nepali TTS early access, Shravya demo, Suseli">
-  <meta name="theme-color" content="#0B1736">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Light or dark: what the reader chose last time, or else what their system uses. Set before anything is drawn.
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fiste AI">
@@ -20,7 +31,7 @@
   <meta property="og:image" content="https://fiste-ai.github.io/assets/og-fiste.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Fiste AI, speech technology for Nepali, with the fiste logo: a small bird's head over the Himalaya">
+  <meta property="og:image:alt" content="Fiste AI, an AI lab for the Nepali language, with the fiste logo: a small bird's head over the Himalaya">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ne_NP">
   <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +58,7 @@
         "name": "Fiste AI",
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
-        "description": "Fiste AI builds speech technology for the Nepali language: Shravya for speech recognition and Suseli for text-to-speech.",
+        "description": "Fiste AI is an AI lab for the Nepali language. Its first models are Shravya, for speech recognition, and Suseli, for text-to-speech.",
         "email": "fistelabs@gmail.com",
         "areaServed": "NP",
         "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"],
@@ -86,23 +97,24 @@
   <a class="skip" href="#main">Skip to the page</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
+      <a class="brand" href="/" aria-label="Fiste AI home"><img class="on-light" src="/assets/mark.svg" alt="" width="57" height="32"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
         <a href="/#models">Models</a>
         <a href="/shravya/">Shravya</a>
         <a href="/suseli/">Suseli</a>
         <a class="keep" href="/contact/" aria-current="page">Contact</a>
+        <button class="theme" type="button" aria-label="Use the dark theme" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <div class="hero">
+    <div class="hero bare">
       <div class="wrap contact">
         <div>
           <p class="kicker"><b>Contact</b> &nbsp;/&nbsp; Fiste AI</p>
           <h1 class="plain">Talk to us.<small>A demo, a licence, or a pilot on your own recordings.</small></h1>
-          <p class="lede">Tell us what you want Nepali speech to do for you. We read every message and answer within a few days.</p>
+          <p class="lede">Tell us what you are building in Nepali. We read every message and answer within a few days.</p>
         </div>
         <div class="form-card">
           <!-- Posts to our own contact worker, which stores the message. Without scripts the worker answers with a page. -->
@@ -138,8 +150,8 @@
           </div>
           <p class="hp" aria-hidden="true"><label for="company-website">Leave this field empty</label>
             <input id="company-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></p>
-          <button class="btn blue send" type="submit">Send the message <span aria-hidden="true">&rarr;</span></button>
-          <p class="status" role="status" hidden></p>
+          <button class="btn send" type="submit">Send the message <span aria-hidden="true">&rarr;</span></button>
+          <p class="status-note" role="status" hidden></p>
           <p class="fineprint">We use what you send only to answer you. No newsletter, and we pass it on to nobody.</p>
         </form>
         </div>
@@ -151,30 +163,25 @@
           <div><dt>Bugs and questions</dt><dd>Open an issue on <a href="https://github.com/fiste-ai/shravya" rel="noopener">GitHub</a>.</dd></div>
         </dl>
       </div>
-      <div class="range" aria-hidden="true"></div>
     </div>
 
     <div class="wrap">
       <section class="section" aria-labelledby="reasons-title">
         <h2 class="label" id="reasons-title">What we can help with</h2>
         <div class="grid">
-          <div class="tile reveal">
-            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span>
+          <div class="tile">
             <h3>A demo on your audio</h3>
             <p>Send a few recordings of the kind you actually deal with and we will show you what Shravya writes down.</p>
           </div>
-          <div class="tile reveal">
-            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9.5 14.5l2 2 3.5-4"/></svg></span>
+          <div class="tile">
             <h3>A commercial licence</h3>
             <p>The public weights are non-commercial. To use Shravya in a product or a paid service, write to us and we will settle terms.</p>
           </div>
-          <div class="tile reveal">
-            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M10 6.5h4.5a3 3 0 0 1 3 3V14"/></svg></span>
+          <div class="tile">
             <h3>A pilot or an integration</h3>
             <p>Call centres, media and newsrooms, government records, research archives. We can tune for your audio and help you put it in place.</p>
           </div>
-          <div class="tile reveal">
-            <span class="icon gold" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5z"/><path d="M15.5 9a4.5 4.5 0 0 1 0 6"/><path d="M18.5 6.5a8 8 0 0 1 0 11"/></svg></span>
+          <div class="tile">
             <h3>Early access to Suseli</h3>
             <p>Our Nepali text-to-speech voice is still in training. Tell us what you need it for and we will come to you first.</p>
           </div>
@@ -184,35 +191,22 @@
   </main>
 
   <footer class="foot">
-    <div class="range" aria-hidden="true"></div>
     <div class="wrap">
-      <div>
-        <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
-        <p>Speech technology for the Nepali language.</p>
-      </div>
-      <div>
-        <h2>Models</h2>
-        <ul>
-          <li><a href="/shravya/">Shravya</a></li>
-          <li><a href="/suseli/">Suseli</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Find us</h2>
-        <ul>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a></li>
-          <li><a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></li>
-        </ul>
-      </div>
-      <p class="legal">Fiste AI, made in Nepal. &copy; 2026</p>
+      <p>Fiste AI, made in Nepal. &copy; 2026</p>
+      <nav aria-label="Footer">
+        <a href="/shravya/">Shravya</a>
+        <a href="/suseli/">Suseli</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
+        <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+      </nav>
     </div>
   </footer>
   <script>
     (function () {
       var form = document.getElementById("contact-form");
       if (!form) return;
-      var status = form.querySelector(".status");
+      var status = form.querySelector(".status-note");
       var button = form.querySelector("button.send");
       var address = "fistelabs@gmail.com";
 

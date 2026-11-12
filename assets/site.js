@@ -4,7 +4,38 @@
 
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* The Himalaya drawn as a waveform: a row of bars, white above the snow line. The stylesheet keeps them moving. */
+  /* Light or dark. The head of the page has already set the reader's choice, or their system's. The switch in the top
+     bar changes it and remembers; until it is used, the page follows the system. */
+  var root = document.documentElement;
+  var toggle = document.querySelector(".theme");
+  var colour = document.querySelector('meta[name="theme-color"]');
+  var system = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+
+  function show(theme) {
+    root.setAttribute("data-theme", theme);
+    if (toggle) toggle.setAttribute("aria-label", theme === "dark" ? "Use the light theme" : "Use the dark theme");
+    if (colour) colour.setAttribute("content", window.getComputedStyle(root).getPropertyValue("--paper").trim());
+  }
+  function chosen() {
+    try { return window.localStorage.getItem("theme"); } catch (error) { return null; }
+  }
+
+  show(root.getAttribute("data-theme") === "dark" ? "dark" : "light");
+  if (toggle) {
+    toggle.hidden = false;
+    toggle.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      try { window.localStorage.setItem("theme", next); } catch (error) {}
+      show(next);
+    });
+  }
+  if (system && system.addEventListener) {
+    system.addEventListener("change", function (event) {
+      if (!chosen()) show(event.matches ? "dark" : "light");
+    });
+  }
+
+  /* The Himalaya drawn as a waveform: a row of bars, snow above the snow line. The stylesheet keeps them moving. */
   var PEAKS = [[0.05, 0.30, 0.09], [0.18, 0.54, 0.10], [0.32, 0.40, 0.08], [0.46, 0.70, 0.10],
                [0.64, 1.00, 0.13], [0.79, 0.58, 0.09], [0.93, 0.36, 0.08]];
   var SNOW_LINE = 0.52;
@@ -28,10 +59,9 @@
     var pitch = (parseFloat(style.getPropertyValue("--bar")) || 8) + (parseFloat(style.getPropertyValue("--gap")) || 6);
     var count = Math.ceil(range.clientWidth / pitch) + 1;
     var tall = range.clientHeight;
-    var flat = range.hasAttribute("data-flat");
     var bars = "";
     for (var i = 0; i < count; i++) {
-      var h = flat ? 0.05 + 0.07 * noise(i) : height(i / Math.max(1, count - 1), i);
+      var h = height(i / Math.max(1, count - 1), i);
       var cap = h > SNOW_LINE ? Math.round((h - SNOW_LINE) * tall * (0.75 + 0.5 * noise(i + 99))) : 0;
       bars += '<i style="--h:' + (h * 100).toFixed(1) + ";--i:" + i + ";--cap:" + cap + "px;--dip:" +
               (0.7 + 0.18 * noise(i + 31)).toFixed(2) + ";--d:" + (620 + Math.round(noise(i + 7) * 760)) + 'ms"></i>';
@@ -62,27 +92,6 @@
       });
     });
     ranges.forEach(function (range) { seen.observe(range); });
-  }
-
-  /* Sections arrive as they scroll into view. What is on screen at the start is never hidden. */
-  var arriving = [].slice.call(document.querySelectorAll(".reveal"));
-  if (arriving.length && "IntersectionObserver" in window && !calm) {
-    var fold = window.innerHeight * 0.94;
-    arriving.forEach(function (node) {
-      if (node.getBoundingClientRect().top < fold) node.classList.add("in");
-    });
-    document.documentElement.classList.add("rise");
-    var watch = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          watch.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px" });
-    arriving.forEach(function (node) {
-      if (!node.classList.contains("in")) watch.observe(node);
-    });
   }
 
   /* Samples: tracks that share one audio element. While one plays, the skyline in the hero moves with it. */

@@ -5,20 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page not found · Fiste AI</title>
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#0B1736">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Light or dark: what the reader chose last time, or else what their system uses. Set before anything is drawn.
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (error) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/mark.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
   <link rel="stylesheet" href="/assets/site.css">
-  <script src="/assets/site.js" defer></script>
 </head>
 <body>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
+      <a class="brand" href="/" aria-label="Fiste AI home"><img class="on-light" src="/assets/mark.svg" alt="" width="57" height="32"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
         <a href="/#models">Models</a>
         <a class="cta keep" href="/contact/">Request a demo</a>
@@ -26,19 +36,18 @@
     </div>
   </header>
   <main>
-    <div class="hero lost">
+    <div class="hero bare lost">
       <div class="wrap">
-        <img src="/assets/mark-dark.svg" alt="" width="190" height="106">
+        <img class="on-light" src="/assets/mark.svg" alt="" width="190" height="106"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="190" height="106">
         <h1 class="plain">Nothing here.</h1>
         <p class="lede">The page you wanted has moved, or never existed.</p>
         <div class="actions">
-          <a class="btn gold" href="/">Back to Fiste AI</a>
-          <a class="btn ghost" href="/shravya/">Shravya</a>
-          <a class="btn ghost" href="/suseli/">Suseli</a>
-          <a class="btn ghost" href="/contact/">Contact</a>
+          <a class="btn" href="/">Back to Fiste AI</a>
+          <a class="more" href="/shravya/">Shravya</a>
+          <a class="more" href="/suseli/">Suseli</a>
+          <a class="more" href="/contact/">Contact</a>
         </div>
       </div>
-      <div class="range" data-flat aria-hidden="true"></div>
     </div>
   </main>
 </body>

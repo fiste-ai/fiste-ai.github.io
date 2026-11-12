@@ -1,11 +1,11 @@
 {
   "name": "Fiste AI",
   "short_name": "Fiste AI",
-  "description": "Speech technology for the Nepali language.",
+  "description": "An AI lab for the Nepali language.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B1736",
-  "theme_color": "#0B1736",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
   "icons": [
     {"src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml"},
     {"src": "/assets/avatar.png", "sizes": "1024x1024", "type": "image/png"}
