@@ -9,7 +9,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Fiste AI">
   <meta name="keywords" content="Shravya, श्रव्य, Nepali speech recognition, Nepali ASR, Nepali speech to text, नेपाली स्पिच टु टेक्स्ट, Fiste AI">
-  <meta name="theme-color" content="#FEFDF9">
+  <meta name="theme-color" content="#0B1736">
   <meta name="color-scheme" content="light">
 
   <meta property="og:type" content="website">
@@ -28,8 +28,9 @@
   <meta name="twitter:description" content="A Nepali speech to text model from Fiste AI. 23.5% mean word error rate over five test sets. Runs on a processor.">
   <meta name="twitter:image" content="https://fiste-ai.github.io/assets/og-shravya.png">
 
-  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/mark.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/avatar.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +48,16 @@
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
         "description": "Fiste AI builds speech technology for the Nepali language: Shravya for speech recognition and Suseli for text-to-speech.",
-        "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"]
+        "email": "fistelabs@gmail.com",
+        "areaServed": "NP",
+        "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"],
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "sales and partnerships",
+          "email": "fistelabs@gmail.com",
+          "url": "https://fiste-ai.github.io/contact/",
+          "availableLanguage": ["en", "ne"]
+        }]
       },
       {
         "@type": "WebPage",
@@ -91,171 +101,113 @@
   }
   </script>
 
-  <style>
-    :root {
-      --paper: #FEFDF9; --paper-2: #F6F2E9; --ink: #20252B; --ink-2: #4A4F57; --ink-3: #7A7E85;
-      --rule: #E4DED1; --red: #DF152E; --red-dark: #B30F24;
-      --sans: "Figtree", system-ui, sans-serif;
-      --serif: "Newsreader", Georgia, "Times New Roman", serif;
-      --deva-sans: "Noto Sans Devanagari", "Mukta", sans-serif;
-      --deva-serif: "Noto Serif Devanagari", "Noto Sans Devanagari", serif;
-      --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
-    }
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 400 20px/1.6 var(--serif); }
-    :lang(ne) { font-family: var(--deva-serif); }
-    a { color: inherit; text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
-    a:hover { color: var(--red-dark); }
-    a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-
-    header.site { display: flex; align-items: center; justify-content: space-between; padding: 22px 0;
-                  font-family: var(--sans); font-size: 15px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 18px; }
-    .brand img { height: 34px; width: auto; }
-    header nav a { margin-left: 22px; text-decoration: none; color: var(--ink-2); font-weight: 500; }
-    header nav a:hover { color: var(--ink); }
-
-    .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: end; padding: 56px 0 64px; }
-    .kicker { font: 600 14px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 28px; }
-    .kicker b { color: var(--red); font-weight: 700; }
-    h1 { margin: 0; font: 700 clamp(64px, 11vw, 128px)/1.3 var(--deva-sans); color: var(--red); letter-spacing: -0.01em; }
-    h1 small { display: block; margin-top: 4px; font: 600 clamp(22px, 3vw, 28px)/1.2 var(--sans); color: var(--ink); letter-spacing: 0; }
-    .hero-text { font-size: 22px; max-width: 32ch; margin: 28px 0 0; }
-    .hero-art img { width: 100%; max-width: 380px; height: auto; display: block; margin-left: auto; }
-
-    .status-card { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); background: #fff; border: 1px solid var(--rule);
-                   border-radius: 16px; box-shadow: 0 1px 2px rgba(32,37,43,.04), 0 12px 32px -18px rgba(32,37,43,.18); overflow: hidden; }
-    .status-text { padding: 30px 32px; font: 500 16px/1.6 var(--sans); color: var(--ink-2); }
-    .status-text p { margin: 0 0 18px; }
-    .status-label { display: flex; align-items: center; gap: 10px; font: 700 13px/1 var(--sans) !important;
-                    letter-spacing: .08em; text-transform: uppercase; color: var(--ink) !important; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(223,21,46,.15); }
-    .buttons { display: flex; flex-wrap: wrap; gap: 10px; }
-    .follow { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; color: var(--ink); text-decoration: none;
-              border: 1px solid var(--rule); border-radius: 999px; padding: 9px 16px; transition: border-color .15s, background .15s; }
-    .follow:hover { border-color: var(--ink); color: var(--ink); background: var(--paper); }
-    .follow.main { background: var(--red); border-color: var(--red); color: #fff; }
-    .follow.main:hover { background: var(--red-dark); border-color: var(--red-dark); color: #fff; }
-    .glance { margin: 0; padding: 30px 32px; background: var(--paper-2); border-left: 1px solid var(--rule);
-              display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; align-content: center; }
-    .glance div { margin: 0; }
-    .glance dt { font: 700 34px/1.1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
-    .glance dd { margin: 6px 0 0; font: 500 14px/1.45 var(--sans); color: var(--ink-3); }
-
-    section { padding: 72px 0 8px; }
-    h2 { font: 700 15px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3);
-         margin: 0 0 28px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-    .note { font: 400 16px/1.6 var(--sans); color: var(--ink-2); max-width: 78ch; margin: 0 0 18px; }
-
-    .scroll { overflow-x: auto; margin: 0 0 22px; border: 1px solid var(--rule); border-radius: 12px; background: #fff; }
-    table.scores { border-collapse: collapse; width: 100%; font: 500 15px/1.4 var(--sans); font-variant-numeric: tabular-nums; }
-    table.scores th, table.scores td { padding: 11px 14px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--rule); }
-    table.scores tbody tr:last-child th, table.scores tbody tr:last-child td { border-bottom: 0; }
-    table.scores thead th { font: 700 12px/1.3 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3);
-                            background: var(--paper-2); white-space: normal; vertical-align: bottom; }
-    table.scores th[scope="row"], table.scores thead th:first-child { text-align: left; white-space: normal; min-width: 190px; font-weight: 600; }
-    table.scores th[scope="row"] a { text-decoration-thickness: 1px; }
-    table.scores tr.ours th, table.scores tr.ours td { background: #FFF4F5; }
-    table.scores b { color: var(--red-dark); font-weight: 700; }
-
-    pre { margin: 0 0 22px; padding: 18px 20px; background: var(--ink); color: #F6F2E9; border-radius: 12px; overflow-x: auto;
-          font: 14px/1.65 var(--mono); }
-    code { font: 0.86em var(--mono); background: var(--paper-2); padding: 1px 5px; border-radius: 4px; }
-    pre code { background: none; padding: 0; font-size: 1em; }
-
-    footer { margin-top: 88px; border-top: 1px solid var(--rule); padding: 28px 0 44px; font: 500 15px/1.6 var(--sans); color: var(--ink-3); }
-    footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    footer a { color: var(--ink-2); }
-
-    @media (max-width: 820px) {
-      body { font-size: 18px; }
-      .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 24px; }
-      .hero-art { display: none; }
-      .status-card { grid-template-columns: minmax(0,1fr); }
-      .glance { border-left: 0; border-top: 1px solid var(--rule); }
-      .status-text, .glance { padding: 24px 22px; }
-      header nav a:not(.keep) { display: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site">
-      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark.svg" alt="" width="61" height="34">Fiste AI</a>
+  <a class="skip" href="#main">Skip to the page</a>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
         <a href="/#models">Models</a>
         <a href="#benchmark">Benchmark</a>
         <a href="#use">Use it</a>
-        <a class="keep" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Hugging Face</a>
-        <a class="keep" href="https://github.com/fiste-ai/shravya" rel="noopener">GitHub</a>
+        <a href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Hugging Face</a>
+        <a href="https://github.com/fiste-ai/shravya" rel="noopener">GitHub</a>
+        <a class="cta keep" href="/contact/">Request a demo</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <div class="hero">
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
         <div>
           <p class="kicker"><b>Released</b> &nbsp;/&nbsp; Nepali speech recognition</p>
           <h1 lang="ne">श्रव्य<small lang="en">Shravya, Nepali speech to text.</small></h1>
-          <p class="hero-text">Play it a Nepali conversation, a phone call or a lecture with English mixed in, and it writes down what was said.</p>
-        </div>
-        <div class="hero-art"><img src="/assets/logo.svg" alt="The fiste logo: a small bird's head over the Himalaya, above the word fiste" width="380" height="324"></div>
-      </div>
-
-      <div class="status-card">
-        <div class="status-text">
-          <p class="status-label"><span class="dot" aria-hidden="true"></span>Version 0.1, 11 November 2026</p>
-          <p>Free for research and other non-commercial use, by request on Hugging Face.</p>
-          <div class="buttons">
-            <a class="follow main" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model <span aria-hidden="true">&rarr;</span></a>
-            <a class="follow" href="https://github.com/fiste-ai/shravya" rel="noopener">Code <span aria-hidden="true">&rarr;</span></a>
+          <p class="lede">Play it a Nepali conversation, a phone call or a lecture with English mixed in, and it writes down what was said.</p>
+          <div class="actions">
+            <a class="btn gold" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn ghost" href="/contact/">Request a demo</a>
+            <a class="btn ghost" href="https://github.com/fiste-ai/shravya" rel="noopener">Code</a>
           </div>
         </div>
-        <dl class="glance">
-          <div><dt>23.5%</dt><dd>word error rate, the lowest of 16 systems measured</dd></div>
-          <div><dt>28&times;</dt><dd>faster than real time on a processor</dd></div>
-        </dl>
+        <div class="glass">
+          <p class="state"><span class="dot" aria-hidden="true"></span>Version 0.1, 11 November 2026</p>
+          <dl class="glance">
+            <div><dt>23.5%</dt><dd>word error rate, the lowest of 16 systems measured</dd></div>
+            <div><dt>28&times;</dt><dd>faster than real time on a processor</dd></div>
+          </dl>
+          <p class="fine">Free for research and other non-commercial use, by request on Hugging Face. For a product or a paid service, <a href="/contact/">ask us for a licence</a>.</p>
+        </div>
       </div>
+      <div class="range" aria-hidden="true"></div>
+    </div>
 
-      <section id="benchmark" aria-labelledby="benchmark-title">
-        <h2 id="benchmark-title">Benchmark</h2>
+    <div class="wrap">
+      <section class="section" id="benchmark" aria-labelledby="benchmark-title">
+        <h2 class="label" id="benchmark-title">Benchmark</h2>
         <p class="note">Word error rate in percent, lower is better.</p>
-        <div class="scroll"><table class="scores">
+        <div class="reveal">
+<div class="scroll"><table class="scores">
 <thead><tr><th>Model</th><th>Size</th><th>Mean</th><th>FLEURS</th><th>IndicVoices</th><th>IndicVoices (phone)</th><th>Podcast</th><th>Code-switch</th></tr></thead>
 <tbody>
-<tr class="ours"><th scope="row"><a href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Shravya 0.1</a></th><td>120M</td><td><b>23.5</b></td><td>23.9</td><td>11.8</td><td>13.8</td><td>34.1</td><td><b>33.7</b></td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ai4bharat/indic-conformer-600m-multilingual" rel="noopener">IndicConformer 600M</a></th><td>600M</td><td>27.3</td><td><b>23.7</b></td><td>15.0</td><td>17.9</td><td>41.7</td><td>38.4</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ai4bharat/indicconformer_stt_ne_hybrid_ctc_rnnt_large" rel="noopener">IndicConformer Nepali</a></th><td>129M</td><td>27.7</td><td>24.8</td><td><b>11.3</b></td><td><b>13.6</b></td><td>48.8</td><td>40.1</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ARTPARK-IISc/SraVaani-1.0" rel="noopener">SraVaani 1.0</a></th><td>430M</td><td>29.7</td><td>25.9</td><td>13.9</td><td>19.1</td><td>45.0</td><td>44.5</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/Aarjan/kriti-telephony" rel="noopener">Kriti Telephony</a></th><td>129M</td><td>31.2</td><td>31.8</td><td>25.1</td><td>27.2</td><td><b>28.3</b></td><td>43.5</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/OpenVoiceOS/ai4bharat-indicconformer-ne-onnx" rel="noopener">IndicConformer Nepali int8</a></th><td>120M</td><td>33.3</td><td>29.2</td><td>16.3</td><td>21.3</td><td>54.5</td><td>45.1</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/sravaani-nepali-english-codemix-asr" rel="noopener">SraVaani code-mix (AI Lab)</a></th><td>449M</td><td>38.2</td><td>34.5</td><td>34.0</td><td>39.6</td><td>39.3</td><td>43.6</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/indicconformer-nepali-english-codemix-asr" rel="noopener">IndicConformer code-mix (AI Lab)</a></th><td>128M</td><td>38.6</td><td>34.9</td><td>34.3</td><td>38.4</td><td>42.1</td><td>43.2</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/whisper-large-v3-turbo-nepali-english-codemix-asr" rel="noopener">Whisper turbo code-mix (AI Lab)</a></th><td>809M</td><td>42.0</td><td>39.2</td><td>39.3</td><td>46.9</td><td>39.8</td><td>44.9</td></tr>
-<tr><th scope="row"><a href="https://huggingface.co/ampixa/ratna-asr" rel="noopener">Ratna (Ampixa Labs)</a></th><td>32M</td><td>54.2</td><td>56.9</td><td>48.3</td><td>53.9</td><td>46.0</td><td>65.6</td></tr>
+<tr class="ours"><th scope="row"><a href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Shravya 0.1</a></th><td>120M</td><td class="mean" style="--v:23.5"><b>23.5</b></td><td>23.9</td><td>11.8</td><td>13.8</td><td>34.1</td><td><b>33.7</b></td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ai4bharat/indic-conformer-600m-multilingual" rel="noopener">IndicConformer 600M</a></th><td>600M</td><td class="mean" style="--v:27.3">27.3</td><td><b>23.7</b></td><td>15.0</td><td>17.9</td><td>41.7</td><td>38.4</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ai4bharat/indicconformer_stt_ne_hybrid_ctc_rnnt_large" rel="noopener">IndicConformer Nepali</a></th><td>129M</td><td class="mean" style="--v:27.7">27.7</td><td>24.8</td><td><b>11.3</b></td><td><b>13.6</b></td><td>48.8</td><td>40.1</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ARTPARK-IISc/SraVaani-1.0" rel="noopener">SraVaani 1.0</a></th><td>430M</td><td class="mean" style="--v:29.7">29.7</td><td>25.9</td><td>13.9</td><td>19.1</td><td>45.0</td><td>44.5</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/Aarjan/kriti-telephony" rel="noopener">Kriti Telephony</a></th><td>129M</td><td class="mean" style="--v:31.2">31.2</td><td>31.8</td><td>25.1</td><td>27.2</td><td><b>28.3</b></td><td>43.5</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/OpenVoiceOS/ai4bharat-indicconformer-ne-onnx" rel="noopener">IndicConformer Nepali int8</a></th><td>120M</td><td class="mean" style="--v:33.3">33.3</td><td>29.2</td><td>16.3</td><td>21.3</td><td>54.5</td><td>45.1</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/sravaani-nepali-english-codemix-asr" rel="noopener">SraVaani code-mix (AI Lab)</a></th><td>449M</td><td class="mean" style="--v:38.2">38.2</td><td>34.5</td><td>34.0</td><td>39.6</td><td>39.3</td><td>43.6</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/indicconformer-nepali-english-codemix-asr" rel="noopener">IndicConformer code-mix (AI Lab)</a></th><td>128M</td><td class="mean" style="--v:38.6">38.6</td><td>34.9</td><td>34.3</td><td>38.4</td><td>42.1</td><td>43.2</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ailabpvtltd/whisper-large-v3-turbo-nepali-english-codemix-asr" rel="noopener">Whisper turbo code-mix (AI Lab)</a></th><td>809M</td><td class="mean" style="--v:42.0">42.0</td><td>39.2</td><td>39.3</td><td>46.9</td><td>39.8</td><td>44.9</td></tr>
+<tr><th scope="row"><a href="https://huggingface.co/ampixa/ratna-asr" rel="noopener">Ratna (Ampixa Labs)</a></th><td>32M</td><td class="mean" style="--v:54.2">54.2</td><td>56.9</td><td>48.3</td><td>53.9</td><td>46.0</td><td>65.6</td></tr>
 </tbody>
 </table></div>
+        </div>
         <p class="note">Shravya was trained on speech like these five test sets, and most of the other systems were not. All 16 systems and the method are in the <a href="https://github.com/fiste-ai/shravya/blob/main/BENCHMARK.md" rel="noopener">full benchmark</a>.</p>
       </section>
 
-      <section id="use" aria-labelledby="use-title">
-        <h2 id="use-title">Use it</h2>
+      <section class="section" id="use" aria-labelledby="use-title">
+        <h2 class="label" id="use-title">Use it</h2>
         <p class="note">Request access on the <a href="https://huggingface.co/fiste-ai/shravya" rel="noopener">model page</a>, then:</p>
-<pre><code>pip install onnxruntime numpy soundfile soxr huggingface_hub
+        <div class="term reveal">
+          <div class="term-bar"><i></i><i></i><i></i><span>Terminal</span><button class="copy" type="button" data-copy="#commands">Copy</button></div>
+<pre><code id="commands">pip install onnxruntime numpy soundfile soxr huggingface_hub
 hf auth login
 hf download fiste-ai/shravya --local-dir shravya-model
 python shravya-model/shravya.py clip.wav</code></pre>
-        <p class="note">One Python file, no graphics card. No punctuation and no live streaming yet, and phone calls are still hard. Weights CC BY-NC 4.0, code MIT.</p>
+        </div>
+        <p class="note">One Python file, no graphics card. No punctuation and no live streaming yet, and phone calls are still hard. Weights CC BY-NC 4.0, code MIT. Using it at work? <a href="/contact/">Ask for a demo or a commercial licence</a>.</p>
       </section>
-    </main>
+    </div>
+  </main>
 
-    <footer>
-      <div class="row">
-        <span>Fiste AI, made in Nepal. &copy; 2026</span>
-        <span><a href="/">Fiste AI</a> &nbsp;&middot;&nbsp; <a href="/suseli/">Suseli</a> &nbsp;&middot;&nbsp; <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a> &nbsp;&middot;&nbsp; <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></span>
+  <footer class="foot">
+    <div class="range" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <a class="brand" href="/" aria-label="Fiste AI home"><img src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
+        <p>Speech technology for the Nepali language.</p>
       </div>
-    </footer>
-  </div>
+      <div>
+        <h2>Models</h2>
+        <ul>
+          <li><a href="/shravya/">Shravya</a></li>
+          <li><a href="/suseli/">Suseli</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Find us</h2>
+        <ul>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a></li>
+          <li><a href="https://github.com/fiste-ai" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+      <p class="legal">Fiste AI, made in Nepal. &copy; 2026</p>
+    </div>
+  </footer>
 </body>
 </html>

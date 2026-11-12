@@ -4,10 +4,10 @@
   "description": "Speech technology for the Nepali language.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FEFDF9",
-  "theme_color": "#FEFDF9",
+  "background_color": "#0B1736",
+  "theme_color": "#0B1736",
   "icons": [
-    {"src": "/assets/mark.svg", "sizes": "any", "type": "image/svg+xml"},
+    {"src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml"},
     {"src": "/assets/avatar.png", "sizes": "1024x1024", "type": "image/png"}
   ]
 }
