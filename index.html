@@ -123,54 +123,39 @@
       <section class="section" id="models" aria-labelledby="models-title">
         <h2 class="label" id="models-title">Models</h2>
         <div class="models">
-          <article class="model shravya reveal">
-            <p class="tag"><span class="pill">Released</span>Speech recognition<span class="ver">Version 0.1</span></p>
+          <article class="model reveal">
+            <p class="tag"><span class="dot" aria-hidden="true"></span>Released <em>Speech recognition</em></p>
             <h3 class="name"><span class="word" lang="ne">श्रव्य</span>Shravya</h3>
-            <p class="what">Listens to Nepali and writes it down.</p>
-            <div class="strip listen" aria-hidden="true">
-              <span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-              <span class="to">&rarr;</span>
-              <span class="say"><span class="typed" lang="ne">नमस्ते</span></span>
+            <p class="what">Listens to Nepali and writes it down. 23.5% word error rate, the lowest of 16 systems measured.</p>
+            <div class="panel">
+              <div class="track">
+                <span class="ear" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                <div class="track-text"><p class="ne" lang="ne">नमस्ते म सुसेली हुँ नेपाली बोल्न सिकिरहेको एउटा सानो आवाज</p><p class="en">What Shravya wrote down on hearing Suseli’s sample.</p></div>
+                <span class="time">0:05</span>
+              </div>
             </div>
-            <dl class="numbers">
-              <div><dt>23.5%</dt><dd>word error rate, the lowest of 16 systems measured</dd></div>
-              <div><dt>28&times;</dt><dd>faster than real time on a processor</dd></div>
-            </dl>
-            <p class="chips-label">What it listens to</p>
-            <ul class="chips">
-              <li>Conversations</li>
-              <li>Phone calls</li>
-              <li>Nepali mixed with English</li>
-            </ul>
+            <p class="spec"><b>Listens to</b>Conversations, phone calls, Nepali mixed with English.</p>
             <div class="actions">
               <a class="btn blue" href="/shravya/">See Shravya <span aria-hidden="true">&rarr;</span></a>
               <a class="quiet" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model</a>
             </div>
           </article>
-          <article class="model suseli reveal">
-            <p class="tag"><span class="pill soon">In training</span>Text-to-speech</p>
+          <article class="model reveal">
+            <p class="tag"><span class="dot open" aria-hidden="true"></span>In training <em>Text-to-speech</em></p>
             <h3 class="name"><span class="word" lang="ne">सुसेली</span>Suseli</h3>
             <p class="what">Reads Nepali text aloud the way a person from here would say it. Not released yet.</p>
-            <figure class="strip sample">
-              <ol class="tracks">
-                <li class="track" data-src="/assets/suseli-hello.mp3">
-                  <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-                  <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
-                  <span class="time">0:05</span>
-                  <span class="bar" aria-hidden="true"><span></span></span>
-                </li>
-              </ol>
+            <figure class="panel sample">
+              <div class="track" data-src="/assets/suseli-hello.mp3">
+                <button type="button" class="play" aria-label="Play: Hello! I’m Suseli, a small voice learning to speak Nepali." aria-pressed="false"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+                <div class="track-text"><p class="ne" lang="ne">नमस्ते! म सुसेली हुँ, नेपाली बोल्न सिकिरहेको एउटा सानो आवाज।</p><p class="en">Hello! I’m Suseli, a small voice learning to speak Nepali.</p></div>
+                <span class="time">0:05</span>
+                <span class="bar" aria-hidden="true"><span></span></span>
+              </div>
               <audio preload="none"></audio>
             </figure>
-            <p class="chips-label">What we are working on</p>
-            <ul class="chips">
-              <li>Sounding like speech</li>
-              <li>Tone of voice</li>
-              <li>More than one voice</li>
-              <li>Running on your own machine</li>
-            </ul>
+            <p class="spec"><b>Working on</b>Sounding like speech, tone of voice, more than one voice, running on your own machine.</p>
             <div class="actions">
-              <a class="btn gold" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
+              <a class="btn blue" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
               <a class="quiet" href="/contact/">Ask for early access</a>
             </div>
           </article>
