@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fiste AI: an AI lab for the Nepali language</title>
-  <meta name="description" content="Fiste AI is a lab that builds AI for the Nepali language. Shravya (श्रव्य) turns Nepali speech into text and is released. Suseli (सुसेली) reads Nepali text aloud and is in training.">
+  <meta name="description" content="Fiste AI builds AI for the Nepali language. Shravya (श्रव्य) turns speech into text, Gopya (गोप्य) finds personal data in text, and Suseli (सुसेली), a voice for Nepali, is in training.">
   <link rel="canonical" href="https://fiste-ai.github.io/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Fiste AI">
-  <meta name="keywords" content="Fiste AI, Nepali AI, Nepali language AI lab, Nepali speech recognition, Nepali text-to-speech, Nepali ASR, Nepali TTS, Shravya, Suseli, श्रव्य, सुसेली">
+  <meta name="keywords" content="Fiste AI, Nepali AI, Nepali language AI lab, Nepali speech recognition, Nepali text-to-speech, Nepali PII detection, Nepali ASR, Nepali TTS, Shravya, Gopya, Suseli, श्रव्य, गोप्य, सुसेली">
   <meta name="theme-color" content="#FFFFFF">
   <meta name="color-scheme" content="light dark">
   <script>
@@ -26,7 +26,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fiste AI">
   <meta property="og:title" content="Fiste AI: an AI lab for the Nepali language">
-  <meta property="og:description" content="We build AI for the Nepali language. Shravya, speech recognition, is released. Suseli, text-to-speech, is in training.">
+  <meta property="og:description" content="We build AI for the Nepali language. Shravya, speech recognition, and Gopya, personal data detection, are released. Suseli, text-to-speech, is in training.">
   <meta property="og:url" content="https://fiste-ai.github.io/">
   <meta property="og:image" content="https://fiste-ai.github.io/assets/og-fiste.png">
   <meta property="og:image:width" content="1200">
@@ -36,7 +36,7 @@
   <meta property="og:locale:alternate" content="ne_NP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fiste AI: an AI lab for the Nepali language">
-  <meta name="twitter:description" content="We build AI for the Nepali language. Shravya is released. Suseli is in training.">
+  <meta name="twitter:description" content="We build AI for the Nepali language. Shravya and Gopya are released. Suseli is in training.">
   <meta name="twitter:image" content="https://fiste-ai.github.io/assets/og-fiste.png">
 
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -58,7 +58,7 @@
         "name": "Fiste AI",
         "url": "https://fiste-ai.github.io/",
         "logo": "https://fiste-ai.github.io/assets/mark.png",
-        "description": "Fiste AI is an AI lab for the Nepali language. Its first models are Shravya, for speech recognition, and Suseli, for text-to-speech.",
+        "description": "Fiste AI is an AI lab for the Nepali language. Its models are Shravya, for speech recognition, Gopya, for finding personal data in text, and Suseli, for text-to-speech.",
         "email": "fistelabs@gmail.com",
         "areaServed": "NP",
         "sameAs": ["https://huggingface.co/fiste-ai", "https://github.com/fiste-ai"],
@@ -83,7 +83,9 @@
         "name": "Fiste AI models",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Shravya, Nepali speech recognition", "url": "https://fiste-ai.github.io/shravya/"},
-          {"@type": "ListItem", "position": 2, "name": "Suseli, Nepali text-to-speech", "url": "https://fiste-ai.github.io/suseli/"}
+          {"@type": "ListItem", "position": 2, "name": "Shravya Live, Nepali speech recognition while someone speaks", "url": "https://fiste-ai.github.io/shravya/#live"},
+          {"@type": "ListItem", "position": 3, "name": "Suseli, Nepali text-to-speech", "url": "https://fiste-ai.github.io/suseli/"},
+          {"@type": "ListItem", "position": 4, "name": "Gopya, Nepali PII detection", "url": "https://fiste-ai.github.io/gopya/"}
         ]
       },
       {
@@ -106,9 +108,12 @@
     <div class="wrap">
       <a class="brand" href="/" aria-label="Fiste AI home"><img class="on-light" src="/assets/mark.svg" alt="" width="57" height="32"><img class="on-dark" src="/assets/mark-dark.svg" alt="" width="57" height="32">Fiste AI</a>
       <nav aria-label="Main">
-        <a href="#models">Models</a>
-        <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
-        <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
+        <a href="/shravya/">Shravya</a>
+        <a href="/suseli/">Suseli</a>
+        <a href="/gopya/">Gopya</a>
+        <a href="#models">All models</a>
+        <a class="far" href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
+        <a class="far" href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
         <button class="theme" type="button" aria-label="Use the dark theme" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button>
         <a class="cta keep" href="/contact/">Request a demo</a>
       </nav>
@@ -135,16 +140,28 @@
     <div class="wrap">
       <section class="section" id="models" aria-labelledby="models-title">
         <h2 class="label" id="models-title">Models</h2>
-        <article class="entry">
+        <article class="entry with-sub">
           <p class="word" lang="ne">श्रव्य</p>
           <div>
             <h3>Shravya</h3>
             <p class="kind">Speech recognition</p>
-            <p class="what">Listens to Nepali and writes it down. 23.5% word error rate, the lowest of 16 systems measured. Shravya Live, a preview, writes while you speak.</p>
+            <p class="what">Listens to Nepali and writes it down. 23.5% word error rate, the lowest of 16 systems measured.</p>
           </div>
           <div class="meta">
             <p class="status"><span class="dot" aria-hidden="true"></span>Released, version 0.1</p>
-            <a class="more" href="/shravya/">See Shravya <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn quiet" href="/shravya/">See Shravya <span aria-hidden="true">&rarr;</span></a>
+            <a class="more" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model</a>
+          </div>
+        </article>
+        <article class="entry sub">
+          <div>
+            <h3>Shravya Live</h3>
+            <p class="kind">Live speech recognition</p>
+            <p class="what">Writes the text while someone is still speaking, then reads each phrase once more when they pause. It comes with the Shravya download.</p>
+          </div>
+          <div class="meta">
+            <p class="status"><span class="dot half" aria-hidden="true"></span>Preview, version 0.1</p>
+            <a class="btn quiet" href="/shravya/#live">See Shravya Live <span aria-hidden="true">&rarr;</span></a>
             <a class="more" href="https://huggingface.co/fiste-ai/shravya" rel="noopener">Get the model</a>
           </div>
         </article>
@@ -157,8 +174,21 @@
           </div>
           <div class="meta">
             <p class="status"><span class="dot open" aria-hidden="true"></span>In training</p>
-            <a class="more" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
+            <a class="btn quiet" href="/suseli/">Hear early samples <span aria-hidden="true">&rarr;</span></a>
             <a class="more" href="/contact/">Ask for early access</a>
+          </div>
+        </article>
+        <article class="entry">
+          <p class="word" lang="ne">गोप्य</p>
+          <div>
+            <h3>Gopya</h3>
+            <p class="kind">Personal data detection</p>
+            <p class="what">Finds names, places, phone numbers and identity numbers in Nepali text, and can take them out. 35 MB, and it runs in your browser, so the text never leaves the page.</p>
+          </div>
+          <div class="meta">
+            <p class="status"><span class="dot" aria-hidden="true"></span>Released, version 0.1</p>
+            <a class="btn quiet" href="/gopya/">Try Gopya <span aria-hidden="true">&rarr;</span></a>
+            <a class="more" href="https://huggingface.co/fiste-ai/gopya" rel="noopener">Get the model</a>
           </div>
         </article>
       </section>
@@ -188,7 +218,10 @@
       <section class="section" aria-labelledby="work-title">
         <h2 class="label" id="work-title">Work with us</h2>
         <p class="big">Building something in Nepali? Ask for a demo on your own recordings, a commercial licence, or early access to Suseli.</p>
-        <a class="btn" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
+        <div class="actions">
+          <a class="btn" href="/contact/">Request a demo <span aria-hidden="true">&rarr;</span></a>
+          <a class="more" href="mailto:fistelabs@gmail.com">fistelabs@gmail.com</a>
+        </div>
       </section>
     </div>
   </main>
@@ -198,7 +231,9 @@
       <p>Fiste AI, made in Nepal. &copy; 2026</p>
       <nav aria-label="Footer">
         <a href="/shravya/">Shravya</a>
+        <a href="/shravya/#live">Shravya Live</a>
         <a href="/suseli/">Suseli</a>
+        <a href="/gopya/">Gopya</a>
         <a href="/contact/">Contact</a>
         <a href="https://huggingface.co/fiste-ai" rel="noopener">Hugging Face</a>
         <a href="https://github.com/fiste-ai" rel="noopener">GitHub</a>
